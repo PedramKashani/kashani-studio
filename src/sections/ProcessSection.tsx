@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Eyebrow from '../components/Eyebrow'
 import { C, s } from '../styles/tokens'
 
@@ -55,32 +56,52 @@ const TIMELINE = [
 ] as const
 
 export default function ProcessSection() {
-  return (
-    <section style={s.section}>
-      <div style={s.secTop}>
-        <div>
-          <Eyebrow label="How it works" />
-          <h2 style={s.secTitle}>Simple process.<br /><span style={{ color: C.dim }}>No surprises.</span></h2>
-        </div>
-        <p style={s.secNote}>From first call to live site — you'll know where things stand at every step.</p>
-      </div>
+  const [activeStep, setActiveStep] = useState<number | null>(null)
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0,1fr))', gap: '1px', background: C.bg5, border: `0.5px solid ${C.bg5}`, borderRadius: '10px', overflow: 'hidden' }}>
-        {STEPS.map(step => (
-          <div key={step.num} style={{ background: C.bg, padding: '36px 24px', display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '40px' }}>
-              <span style={{ fontSize: '11px', fontWeight: 500, color: C.teal, letterSpacing: '0.1em' }}>{step.num}</span>
-              <div style={{ width: '30px', height: '30px', borderRadius: '50%', border: `0.5px solid ${C.border2}`, display: 'flex', alignItems: 'center', justifyContent: 'center', background: C.bg3 }}>
+  return (
+    <section style={{ ...s.section, padding: '96px clamp(20px, 5vw, 48px) 112px' }}>
+      <header style={{ marginBottom: '56px', maxWidth: 'min(560px, 100%)' }}>
+        <Eyebrow label="How it works" />
+        <h2 style={s.secTitle}>
+          Simple process.
+          <br />
+          <span style={{ color: C.titleSoft }}>No surprises.</span>
+        </h2>
+        <p
+          style={{
+            margin: '18px 0 0',
+            fontSize: '15px',
+            lineHeight: 1.65,
+            color: C.prose,
+            fontWeight: 400,
+          }}
+        >
+          From first call to live site — you&apos;ll know where things stand at every step.
+        </p>
+      </header>
+
+      <div className="process-grid" role="list">
+        {STEPS.map((step, i) => (
+          <div
+            key={step.num}
+            role="listitem"
+            className={`process-step${activeStep === i ? ' process-step--highlight' : ''}`}
+            onMouseEnter={() => setActiveStep(i)}
+            onMouseLeave={() => setActiveStep(null)}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '36px' }}>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: C.teal, letterSpacing: '0.12em' }}>{step.num}</span>
+              <div style={{ width: '32px', height: '32px', borderRadius: '50%', border: `0.5px solid ${C.border2}`, display: 'flex', alignItems: 'center', justifyContent: 'center', background: C.bg3 }}>
                 {step.icon}
               </div>
             </div>
-            <p style={{ fontSize: '17px', fontWeight: 500, color: C.text, margin: '0 0 10px' }}>{step.name}</p>
-            <p style={{ fontSize: '13px', color: C.muted3, lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
-            <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: `0.5px solid ${C.bg5}`, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <p style={{ fontSize: '18px', fontWeight: 500, color: C.text, margin: 0, letterSpacing: '-0.02em' }}>{step.name}</p>
+            <p style={{ fontSize: '14px', color: C.prose, lineHeight: 1.62, margin: '14px 0 0' }}>{step.desc}</p>
+            <div style={{ marginTop: '32px', paddingTop: '26px', borderTop: `0.5px solid ${C.bg5}`, display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {step.details.map(d => (
-                <div key={d} style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '12px', color: C.muted2 }}>
-                  <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: C.teal, opacity: 0.5, flexShrink: 0 }} />
-                  {d}
+                <div key={d} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px', color: C.proseMuted, lineHeight: 1.45 }}>
+                  <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: C.teal, marginTop: '5px', flexShrink: 0 }} />
+                  <span>{d}</span>
                 </div>
               ))}
             </div>
@@ -88,12 +109,17 @@ export default function ProcessSection() {
         ))}
       </div>
 
-      <div style={{ marginTop: '20px', display: 'flex', border: `0.5px solid ${C.bg5}`, borderRadius: '8px', overflow: 'hidden' }}>
+      <div className="process-timeline" aria-label="Typical project timeline">
         {TIMELINE.map(([num, lbl, time], i) => (
-          <div key={num} style={{ flex: 1, padding: '13px 16px', borderRight: i < TIMELINE.length - 1 ? `0.5px solid ${C.bg5}` : 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ fontSize: '11px', fontWeight: 500, color: C.teal, letterSpacing: '0.06em', flexShrink: 0 }}>{num}</span>
-            <span style={{ fontSize: '12px', color: '#333' }}>{lbl}</span>
-            <span style={{ fontSize: '12px', color: '#222', marginLeft: 'auto', whiteSpace: 'nowrap' }}>{time}</span>
+          <div
+            key={num}
+            className={`process-timeline-seg${activeStep === i ? ' process-timeline-seg--highlight' : ''}`}
+            onMouseEnter={() => setActiveStep(i)}
+            onMouseLeave={() => setActiveStep(null)}
+          >
+            <span style={{ fontSize: '11px', fontWeight: 600, color: C.teal, letterSpacing: '0.08em', flexShrink: 0 }}>{num}</span>
+            <span style={{ fontSize: '13px', color: C.muted1, letterSpacing: '-0.01em' }}>{lbl}</span>
+            <span style={{ fontSize: '13px', fontWeight: 500, color: C.text, marginLeft: 'auto', whiteSpace: 'nowrap', letterSpacing: '-0.02em' }}>{time}</span>
           </div>
         ))}
       </div>

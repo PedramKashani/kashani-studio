@@ -19,17 +19,24 @@ export const C = {
   muted5:   '#1e1e1e',
   dim:      '#242424',
   fade:     '#282828',
+  /** Second line in large section titles — readable on `#080808` without competing with primary text */
+  titleSoft: '#6f6f6f',
+  /** Body copy on dark cards */
+  prose:    '#979797',
+  proseMuted: '#858585',
 }
 
+export const pagePadX = 'clamp(16px, 4vw, 48px)'
+
 export const s: Record<string, CSSProperties> = {
-  section:  { background: C.bg, padding: '96px 48px', borderTop: `0.5px solid ${C.border}`, fontFamily: 'system-ui, -apple-system, sans-serif' },
-  secTop:   { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '64px' },
-  secTitle: { fontSize: '38px', fontWeight: 500, lineHeight: 1.1, letterSpacing: '-0.02em', color: C.text, margin: 0 },
-  secNote:  { fontSize: '14px', color: C.muted3, lineHeight: 1.6, maxWidth: '240px', textAlign: 'right' },
+  section:  { background: C.bg, padding: `96px ${pagePadX}`, borderTop: `0.5px solid ${C.border}`, fontFamily: 'system-ui, -apple-system, sans-serif' },
+  secTop:   { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '56px' },
+  secTitle: { fontSize: 'clamp(30px, 4.6vw, 38px)', fontWeight: 500, lineHeight: 1.1, letterSpacing: '-0.02em', color: C.text, margin: 0 },
+  secNote:  { fontSize: '14px', color: C.proseMuted, lineHeight: 1.65, maxWidth: '360px', textAlign: 'right' },
   eyebrow:  { display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' },
   eyeLine:  { width: '24px', height: '1px', background: C.border3 },
   eyeDot:   { width: '5px', height: '5px', borderRadius: '50%', background: C.teal },
-  eyeText:  { fontSize: '11px', color: '#444', letterSpacing: '0.08em', textTransform: 'uppercase' },
+  eyeText:  { fontSize: '11px', color: C.muted2, letterSpacing: '0.08em', textTransform: 'uppercase' },
   cardGrid: { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '1px', background: C.border, border: `0.5px solid ${C.border}`, borderRadius: '10px', overflow: 'hidden' },
   card:     { background: C.bg3, padding: '36px 28px 40px', display: 'flex', flexDirection: 'column' },
   cardFeat: { background: '#0f1a16', padding: '36px 28px 40px', display: 'flex', flexDirection: 'column' },

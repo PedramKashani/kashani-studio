@@ -10,6 +10,7 @@ export default function Home() {
       <Hero />
       <ServicesSection />
       <ProcessSection />
+      <div className="home-process-work-spacer" aria-hidden />
       <WorkSection />
       <CTASection />
     </>

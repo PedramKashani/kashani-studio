@@ -53,22 +53,22 @@ const SIDE_PROJECTS = [
 export default function WorkSection({ showViewAll = true }: { showViewAll?: boolean }) {
   return (
     <section id="work" style={s.section}>
-      <div style={s.secTop}>
+      <div className="site-shell section-top" style={s.secTop}>
         <div>
           <Eyebrow label="Selected Work" />
-          <h2 style={s.secTitle}>Built for businesses<br /><span style={{ color: C.dim }}>that mean business.</span></h2>
+          <h2 style={s.secTitle}>Built for businesses<br /><span style={{ color: C.titleSoft }}>that mean business.</span></h2>
         </div>
         {showViewAll && (
           <Link
             to="/work"
-            style={{ fontSize: '13px', color: '#333', display: 'flex', alignItems: 'center', gap: '6px', border: `0.5px solid ${C.border2}`, padding: '9px 18px', borderRadius: '6px', textDecoration: 'none' }}
+            style={{ fontSize: '13px', color: C.muted1, display: 'flex', alignItems: 'center', gap: '6px', border: `0.5px solid ${C.border2}`, padding: '9px 18px', borderRadius: '6px', textDecoration: 'none' }}
           >
             View all work <span style={{ color: C.teal }}>→</span>
           </Link>
         )}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.6fr) minmax(0,1fr)', gap: '1px', background: C.bg5, border: `0.5px solid ${C.bg5}`, borderRadius: '10px', overflow: 'hidden', marginBottom: '1px' }}>
+      <div className="site-shell work-main-grid" style={{ background: C.bg5, border: `0.5px solid ${C.bg5}`, borderRadius: '10px', overflow: 'hidden', marginBottom: '1px' }}>
         {/* featured */}
         <div style={{ background: C.bg2, position: 'relative', minHeight: '280px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
           <div style={{ position: 'absolute', inset: 0, background: C.bg4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -81,7 +81,7 @@ export default function WorkSection({ showViewAll = true }: { showViewAll?: bool
             </div>
             <p style={{ fontSize: '16px', fontWeight: 500, color: C.text, margin: '0 0 5px' }}>Reeder McCreary LLP</p>
             <p style={{ fontSize: '13px', color: C.muted3, lineHeight: 1.55, margin: 0 }}>Sharp, credibility-first site for a full-service business litigation firm — built to convert visitors into consultations.</p>
-            <span style={{ position: 'absolute', right: '24px', top: '24px', fontSize: '14px', color: '#222' }}>↗</span>
+            <span style={{ position: 'absolute', right: '24px', top: '24px', fontSize: '14px', color: C.muted2 }}>↗</span>
           </div>
         </div>
 
@@ -110,12 +110,12 @@ export default function WorkSection({ showViewAll = true }: { showViewAll?: bool
       </div>
 
       {/* stats bar */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '1px', background: C.bg5, border: `0.5px solid ${C.bg5}`, borderRadius: '10px', overflow: 'hidden' }}>
+      <div className="site-shell work-stats-grid" style={{ background: C.bg5, border: `0.5px solid ${C.bg5}`, borderRadius: '10px', overflow: 'hidden' }}>
         {WORK_STATS.map(([num, lbl], i) => (
           <div key={lbl} style={{ background: C.bg2, padding: '22px 28px', display: 'flex', alignItems: 'center', gap: '14px' }}>
             <p style={{ fontSize: '26px', fontWeight: 500, color: C.text, letterSpacing: '-0.02em', margin: 0 }}>{num}</p>
-            {i < 2 && <div style={{ width: '1px', height: '28px', background: C.border, flexShrink: 0 }} />}
-            <p style={{ fontSize: '12px', color: '#333', lineHeight: 1.5, margin: 0 }}>{lbl}</p>
+            {i < 2 && <div className="work-stat-divider" />}
+            <p style={{ fontSize: '12px', color: C.muted1, lineHeight: 1.5, margin: 0 }}>{lbl}</p>
           </div>
         ))}
       </div>

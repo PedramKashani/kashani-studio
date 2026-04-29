@@ -12,8 +12,10 @@ const VALUES = [
 export default function AboutSection() {
   return (
     <section id="about" style={s.section}>
-      <Eyebrow label="About" />
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: '72px', alignItems: 'start' }}>
+      <div className="site-shell">
+        <Eyebrow label="About" />
+      </div>
+      <div className="site-shell about-main-grid">
 
         {/* photo col */}
         <div>
@@ -57,7 +59,7 @@ export default function AboutSection() {
 
           <div style={{ height: '0.5px', background: C.bg5, margin: '32px 0' }} />
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: C.bg5, border: `0.5px solid ${C.bg5}`, borderRadius: '8px', overflow: 'hidden', marginBottom: '36px' }}>
+          <div className="about-values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: '1px', background: C.bg5, border: `0.5px solid ${C.bg5}`, borderRadius: '8px', overflow: 'hidden', marginBottom: '36px' }}>
             {VALUES.map(([lbl, txt]) => (
               <div key={lbl} style={{ background: C.bg2, padding: '18px 20px' }}>
                 <div style={{ fontSize: '11px', color: C.teal, letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 500, marginBottom: '5px' }}>{lbl}</div>

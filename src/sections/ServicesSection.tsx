@@ -65,29 +65,29 @@ const PACKAGES = [
 export default function ServicesSection() {
   return (
     <section id="services" style={s.section}>
-      <div style={s.secTop}>
+      <div className="site-shell section-top section-top--services" style={s.secTop}>
         <div>
           <Eyebrow label="Website Packages" />
-          <h2 style={s.secTitle}>Everything you need.<br /><span style={{ color: C.dim }}>Nothing you don't.</span></h2>
+          <h2 style={s.secTitle}>Everything you need.<br /><span style={{ color: C.titleSoft }}>Nothing you don't.</span></h2>
         </div>
-        <p style={s.secNote}>Flexible packages built around where your business actually is — not where an agency wants it to be.</p>
+        <p className="section-top-note" style={s.secNote}>Flexible packages built around where your business actually is — not where an agency wants it to be.</p>
       </div>
 
-      <div style={s.cardGrid}>
+      <div className="site-shell services-grid" style={s.cardGrid}>
         {PACKAGES.map(pkg => (
-          <div key={pkg.name} style={pkg.featured ? s.cardFeat : s.card}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', color: pkg.featured ? C.teal : '#333', marginBottom: '28px' }}>
-              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: pkg.featured ? C.teal : '#333' }} />
+          <div key={pkg.name} className={`service-card${pkg.featured ? ' service-card--featured' : ''}`} style={pkg.featured ? s.cardFeat : s.card}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', color: pkg.featured ? C.teal : C.muted2, marginBottom: '24px' }}>
+              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: pkg.featured ? C.teal : C.muted2 }} />
               {pkg.tag}
             </div>
-            <p style={{ fontSize: '18px', fontWeight: 500, color: C.text, margin: '0 0 8px', letterSpacing: '-0.01em' }}>{pkg.name}</p>
-            <p style={{ fontSize: '13px', color: C.muted3, margin: '0 0 24px', lineHeight: 1.5 }}>{pkg.best}</p>
+            <p style={{ fontSize: '18px', fontWeight: 500, color: C.text, margin: '0 0 9px', letterSpacing: '-0.01em' }}>{pkg.name}</p>
+            <p style={{ fontSize: '13px', color: pkg.featured ? C.prose : C.muted1, margin: '0 0 22px', lineHeight: 1.6 }}>{pkg.best}</p>
             <p style={{ fontSize: '28px', fontWeight: 500, color: C.text, letterSpacing: '-0.02em', margin: '0 0 4px' }}>{pkg.price}</p>
-            <p style={{ fontSize: '12px', color: C.muted4, margin: '0 0 28px' }}>{pkg.priceNote}</p>
-            <div style={{ height: '1px', background: '#161616', marginBottom: '24px' }} />
+            <p style={{ fontSize: '12px', color: pkg.featured ? C.muted2 : C.proseMuted, margin: '0 0 24px' }}>{pkg.priceNote}</p>
+            <div style={{ height: '1px', background: '#161616', marginBottom: '22px' }} />
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 auto' }}>
               {pkg.features.map(f => (
-                <li key={f.label} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px', color: f.on ? C.muted1 : '#4a4a4a', padding: '4px 0' }}>
+                <li key={f.label} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px', color: f.on ? C.muted1 : C.muted2, padding: '5px 0', lineHeight: 1.45 }}>
                   <CheckIcon on={f.on} />
                   {f.label}
                 </li>
@@ -102,11 +102,13 @@ export default function ServicesSection() {
         ))}
       </div>
 
-      <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 24px', border: `0.5px solid ${C.border}`, borderRadius: '8px' }}>
+      <div className="site-shell" style={{ marginTop: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 24px', border: `0.5px solid ${C.border}`, borderRadius: '8px', flexWrap: 'wrap' }}>
         <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: C.teal, flexShrink: 0 }} />
-        <p style={{ fontSize: '13px', color: '#333', margin: 0 }}>
+        <p style={{ fontSize: '13px', color: '#333', margin: 0, minWidth: 0 }}>
           Flexible financing available — <span style={{ color: C.muted1 }}>start from $500 down, pay the rest monthly.</span> Site ownership transfers on final payment.
         </p>
+        </div>
       </div>
     </section>
   )

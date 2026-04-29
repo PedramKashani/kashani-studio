@@ -22,15 +22,15 @@ const inputStyle = {
 export default function Contact() {
   return (
     <section style={{ ...s.section, borderTop: 'none' }}>
-      <div style={s.secTop}>
+      <div className="site-shell section-top" style={s.secTop}>
         <div>
           <Eyebrow label="Get in touch" />
           <h1 style={s.secTitle}>Let's build<br /><span style={{ color: C.dim }}>something great.</span></h1>
         </div>
-        <p style={s.secNote}>We'll get back to you within one business day.</p>
+        <p className="section-top-note" style={s.secNote}>We'll get back to you within one business day.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.3fr)', gap: '72px', alignItems: 'start' }}>
+      <div className="site-shell contact-main-grid">
 
         {/* left col */}
         <div>
@@ -47,7 +47,7 @@ export default function Contact() {
 
         {/* form */}
         <form style={{ display: 'flex', flexDirection: 'column', gap: '14px' }} onSubmit={e => e.preventDefault()}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="contact-name-grid">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               <label htmlFor="contact-name" style={{ fontSize: '11px', color: '#444', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Name</label>
               <input id="contact-name" name="name" style={inputStyle} type="text" placeholder="Your name" />
