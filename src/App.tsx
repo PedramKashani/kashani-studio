@@ -6,11 +6,13 @@ import Services from './pages/Services'
 import Work from './pages/Work'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import Intake from './pages/Intake'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="intake" element={<Intake />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />

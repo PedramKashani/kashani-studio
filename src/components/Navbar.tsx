@@ -7,6 +7,7 @@ const NAV_LINKS = [
   ['Work', '/work'],
   ['Services', '/services'],
   ['About', '/about'],
+  ['Contact', '/contact'],
 ] as const
 
 export default function Navbar() {
@@ -53,10 +54,10 @@ export default function Navbar() {
             ))}
           </div>
           <Link
-            to="/contact"
+            to="/intake"
             style={{ fontSize: '13px', fontWeight: 500, color: C.text, border: `0.5px solid ${C.border3}`, padding: '8px 20px', borderRadius: '6px', background: '#111', textDecoration: 'none' }}
           >
-            Book a call
+            Start a project
           </Link>
         </div>
 
@@ -144,7 +145,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              to="/contact"
+              to="/intake"
               onClick={() => setMenuOpen(false)}
               style={{
                 fontSize: '15px',
@@ -158,7 +159,7 @@ export default function Navbar() {
                 marginTop: '4px',
               }}
             >
-              Book a call
+              Start a project
             </Link>
           </div>
         </div>

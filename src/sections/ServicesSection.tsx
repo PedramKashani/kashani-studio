@@ -93,7 +93,7 @@ export default function ServicesSection() {
                 </li>
               ))}
             </ul>
-            <Link to="/contact" style={{ textDecoration: 'none' }}>
+            <Link to="/intake" style={{ textDecoration: 'none' }}>
               <button style={{ marginTop: '32px', fontSize: '13px', fontWeight: 500, padding: '11px 0', textAlign: 'center', borderRadius: '6px', border: pkg.featured ? 'none' : `0.5px solid ${C.muted5}`, color: pkg.featured ? '#fff' : C.muted2, background: pkg.featured ? C.teal : 'transparent', cursor: 'pointer', width: '100%' }}>
                 {pkg.cta}
               </button>

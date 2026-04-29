@@ -36,7 +36,7 @@ export default function Hero() {
             Custom code, no templates. For firms, nonprofits, and service businesses that have outgrown their current site.
           </p>
           <div className="hero-actions" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px' }}>
-            <Link to="/contact" style={{ textDecoration: 'none' }}>
+            <Link to="/intake" style={{ textDecoration: 'none' }}>
               <button style={{ background: C.text, color: C.bg, fontSize: '14px', fontWeight: 500, padding: '13px 30px', borderRadius: '6px', border: 'none', cursor: 'pointer', letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>
                 Start a project
               </button>

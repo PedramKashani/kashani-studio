@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Eyebrow from '../components/Eyebrow'
 import { C, s } from '../styles/tokens'
 
@@ -34,9 +35,18 @@ export default function Contact() {
 
         {/* left col */}
         <div>
-          <p style={{ fontSize: '15px', color: C.muted3, lineHeight: 1.75, margin: '0 0 36px' }}>
+          <p style={{ fontSize: '15px', color: C.muted3, lineHeight: 1.75, margin: '0 0 24px' }}>
             Book a free 30-minute discovery call. We'll talk through what your business needs and whether we're the right fit.
           </p>
+          <Link to="/intake" style={{ textDecoration: 'none', display: 'block', marginBottom: '36px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 18px', background: '#0a1812', border: `0.5px solid ${C.teal}22`, borderRadius: '8px', gap: '12px' }}>
+              <div>
+                <div style={{ fontSize: '13px', fontWeight: 500, color: C.text, marginBottom: '2px' }}>Starting a new project?</div>
+                <div style={{ fontSize: '12px', color: '#3a3a3a', lineHeight: 1.5 }}>Fill out the project brief — we'll come back with a scoped proposal.</div>
+              </div>
+              <span style={{ fontSize: '18px', color: C.teal, flexShrink: 0 }}>→</span>
+            </div>
+          </Link>
           {INFO.map(([label, value]) => (
             <div key={label} style={{ padding: '16px 0', borderBottom: `0.5px solid ${C.bg5}` }}>
               <div style={{ fontSize: '11px', color: C.teal, letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 500, marginBottom: '4px' }}>{label}</div>

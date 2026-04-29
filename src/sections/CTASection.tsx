@@ -14,12 +14,12 @@ export default function CTASection() {
           your <span style={{ color: C.teal }}>best</span> <span style={{ color: C.dim }}>sales</span>person.
         </h2>
         <p style={{ fontSize: '15px', color: C.muted3, lineHeight: 1.65, maxWidth: '360px', margin: '0 0 44px' }}>
-          If your current website isn't bringing in business — or you don't have one yet — let's fix that. Book a free 30-minute call and we'll figure out exactly what you need.
+          If your current website isn't bringing in business — or you don't have one yet — let's fix that. Fill out a quick brief and we'll come back with a clear scope and proposal.
         </p>
         <div className="cta-actions">
-          <Link to="/contact" style={{ textDecoration: 'none' }}>
+          <Link to="/intake" style={{ textDecoration: 'none' }}>
             <button style={{ background: C.text, color: C.bg, fontSize: '14px', fontWeight: 500, padding: '14px 32px', borderRadius: '6px', border: 'none', cursor: 'pointer' }}>
-              Book a free call
+              Start your brief
             </button>
           </Link>
           <Link to="/services" style={{ textDecoration: 'none' }}>
